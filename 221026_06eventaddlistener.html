@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--input태그에 데이터 존재 유무 확인하고 액션 페이지로 들어가는 이벤트-->
+    <form id = "form" action="01loop.html" onsubmit="return fnSubmit()"> <!--submit버튼을 누르면 onsubmit작동(스크립트 안 fnSubmit함수).-->
+        <label>이름<input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    </form>
+
+    <!--버튼 누르면 form에 연결된 action 실행하기-->
+    <button type="button" id="btn" onclick="fnButton()">button</button>
+
+    <!--confirm을 활용해서 페이지 이동 물어보고 진행하는 이벤트-->
+    <a href="http://www.naver.com" id="abtn" onclick="fnA()">naver</a> <!--a태그에도 활용 가능. alert실행 후 페이지 띄워짐-->
+
+    <script>
+
+
+        function fnSubmit(){
+            let txt = document.getElementById('userid');
+            if(txt.value == ''){
+                return false;
+            }
+            return true;
+        }
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',fncBtn); // 클릭하면 fncBtn함수 실행.
+
+        function fncBtn(){
+            let form = document.getElementById('form');
+            form.submit(); // 창이 뜸
+        }
+
+        
+
+
+    </script>
+</body>
+</html>

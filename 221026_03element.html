@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            background-color: brown;
+            color:white;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        
+        let span = document.createElement('span');
+        span.setAttribute('class','red');
+        span.setAttribute('id','sp1');
+        span.textContent = "span입니다";
+        
+        // console.log(spanTag);
+        
+        let h2 = document.createElement('h2');
+        h2.textContent = "텍스트입니다."
+        
+        let img = document.createElement('img');
+        img.setAttribute('src','./미소강아지.jpg');
+        img.setAttribute('alt','이미지 불러올 수 없음');
+        img.setAttribute('style','height:100px');
+        
+        // let ul = document.createElement('ul');
+        // let il = document.createElement('li');
+        // li.classList.add('liclass');
+        // li.textContent(li);
+        
+        let ul = document.createElement('ul');
+        
+        for(let i=1; i<=3; i++){
+            let li = document.createElement('li');
+            li.classList.add('liclass'); // class만들기
+            li.textContent = "텍스트"+i;
+            ul.appendChild(li);
+        }
+        
+        //연결
+        
+        let div = document.getElementById('app'); // 1. div태그 불러오기!
+        div.appendChild(span); // 2. 태그 순서대로 붙이기!
+        div.appendChild(h2);
+        div.appendChild(img);
+        div.appendChild(ul);
+
+        // div.append(span,h2,img,ul); // 순서대로 쭉 써도 됨!
+
+        let removeSpan = document.getElementById('sp1');
+        removeSpan.remove(); // 나 자신의 요소 지울 때
+
+    </script>
+</body>
+</html>

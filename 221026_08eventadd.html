@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="txtWord">
+    <button type="button" id="btnAdd" onclick="pAdd()">추가</button>
+
+    <p class="word">list</p>
+    <p class="word">nice</p>
+    <p class="word">good</p>
+    <p class="word">very</p>
+
+    <script>
+         // let btn = document.querySelector('#btnAdd');
+        //버튼 클릭 시 , p 태그가 생성, 추가되도록
+        //input 태그의 데이터를 추가해서 p태그에 들어감
+        function pAdd(){
+            const p = document.createElement('p'); // p태그 생성
+            p.classList.add('word'); // word라는 클래스 생성
+            let txt = document.getElementById('txtWord'); // input 가져옴
+            p.innerHTML = txt.value; // p 안에 있는 input(txt)의 데이터내용 넣어줌 
+            document.body.append(p); // document의 body에 p를 붙임
+        }
+
+        //그룹이벤트
+        document.body.addEventListener('click',function(){
+            if(event.target.className == 'word'){ // classname이 word면 이벤트 실행
+                console.log(event.target.innerHTML); // 누르면 콘솔창에 띄워짐
+            }
+
+            console.log("this",this); // this는 이벤트를 걸어놓은 대상. (여기선 body 호출)
+            console.log("target",event.target); // event.target은 클릭한 대상 (여기선 button)
+            console.log("currentTarget",event.currentTarget); // currentTarget: 이벤트를 걸어놓은 대상 (=this)
+        })
+
+        //ex) console.log(event) 무슨 이벤트 쓸지 모를때 콘솔창에서 확인하고 적용해보기. 이벤트뿐만 아니라 다른것도 가능.
+    </script>
+</body>
+</html>
