@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input 태그에 데이터 존재 유무 확인하고 action 페이지로 넘어가는 이벤트 -->
+
+    <form id="form" action="221026_04eventType-my.html" onsubmit="return fnSubmit()">
+        <label>이름<input type="text" name="userid" id="userid"></label><br>
+        <button>submit</button>
+    </form>
+
+    <script>
+    let input = document.getElementById('userid');
+
+    function fnSubmit(){
+        if(input.value == ''){
+            return false;
+        }
+        return true;
+    }
+    </script>
+
+    <!--버튼 누르면 form에 연결된 action 실행하기-->
+
+    <button type="button" id="btn" onclick="fnbtn()">button</button>
+
+    <script>
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click',fnbtn);
+
+    function fnbtn(){
+        let form = document.getElementById(form);
+        form.submit();
+    }
+    </script>
+
+    <!--confirm을 활용해서 페이지 이동 물어보고 진행하는 이벤트-->
+
+    <a href="https://www.naver.com" id="link">네이버</a>
+
+    <script>
+        let link = document.getElementById('link');
+        link.addEventListener('click',fnclink);
+
+        function fnclink(){
+            if(!confirm('이동?')){
+                event.preventDefault;
+            }
+        }
+    </script>
+</body>
+</html>
